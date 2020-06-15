@@ -5,10 +5,10 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
 import Icon from '@expo/vector-icons/Ionicons';
 
-import HomeStackScreen from '../HomeStackScreen';
-import ExploreStackScreen from '../ExploreStackScreen';
-import ProfileStackScreen from '../ProfileStackScreen';
-import NotificationsStackScreen from '../NotificationsStackScreen';
+import HomeStackScreen from './HomeStackScreen';
+import ExploreStackScreen from './ExploreStackScreen';
+import ProfileStackScreen from './ProfileStackScreen';
+import NotificationsStackScreen from './NotificationsStackScreen';
 
 
 
@@ -35,7 +35,7 @@ const MainTabScreen = () => (
         component={NotificationsStackScreen}
         options={{
           tabBarLabel: 'Updates',
-          tabBarColor: '#522F89',
+          tabBarColor: '#1f65ff',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-notifications" color={color} size={26} />
           ),
@@ -57,7 +57,7 @@ const MainTabScreen = () => (
         component={ExploreStackScreen}
         options={{
           tabBarLabel: 'Explore',
-          tabBarColor: '#522F89',
+          tabBarColor: '#d02860',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-aperture" color={color} size={26} />
           ),
