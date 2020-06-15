@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
 import HomeScreen from './HomeScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from '@expo/vector-icons/Ionicons';

@@ -1,31 +1,35 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet, StatusBar } from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import React,{Component} from "react";
+import {View, StyleSheet,ScrollView,SafeAreaView,} from "react-native";
+import QuickAccessComponent from "../components/QuickAccessComponent";
+import UpcomingPaymentSubItem from "../components/UpcomingPaymentSubItem";
+import PageInstructionComponent from "../components/PageInstructionComponent";
+import ChatComponent from "../components/Chat";
+import HeaderCard from "../components/HeaderCard";
 
-const HomeScreen = ({navigation}) => {
 
-  const { colors } = useTheme();
-
-  const theme = useTheme();
-  
+const HomeScreen = () =>{
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle= { theme.dark ? "light-content" : "dark-content" }/>
-        <Text style={{color: colors.text}}>Home Screen</Text>
-      <Button
-        title="Go to details screen"
-        onPress={() => navigation.navigate("Details")}
-      />
-      </View>
+        <SafeAreaView>
+            <ScrollView>
+                <HeaderCard title='Welcome Andrew'/>
+                <View style={styles.bodyStyle}>
+                    <ChatComponent/>
+                    <PageInstructionComponent cardRadius={10} />
+                    <UpcomingPaymentSubItem cardRadius={10}/>
+                    <QuickAccessComponent cardRadius={10}/>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
-};
-
+}
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
-  },
+    bodyStyle: {
+        position:'relative',
+        margin:15,
+        top:-100,
+
+    },
 });
+

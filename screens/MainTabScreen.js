@@ -35,7 +35,7 @@ const MainTabScreen = () => (
         component={NotificationsStackScreen}
         options={{
           tabBarLabel: 'Updates',
-          tabBarColor: '#1f65ff',
+          tabBarColor: '#522F89',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-notifications" color={color} size={26} />
           ),
@@ -46,7 +46,7 @@ const MainTabScreen = () => (
         component={ProfileStackScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarColor: '#694fad',
+          tabBarColor: '#522F89',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-person" color={color} size={26} />
           ),
@@ -57,7 +57,7 @@ const MainTabScreen = () => (
         component={ExploreStackScreen}
         options={{
           tabBarLabel: 'Explore',
-          tabBarColor: '#d02860',
+          tabBarColor: '#522F89',
           tabBarIcon: ({ color }) => (
             <Icon name="ios-aperture" color={color} size={26} />
           ),
