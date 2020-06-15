@@ -5,10 +5,10 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
 import Icon from '@expo/vector-icons/Ionicons';
 
-import HomeStackScreen from './HomeStackScreen';
-import ExploreStackScreen from './ExploreStackScreen';
-import ProfileStackScreen from './ProfileStackScreen';
-import NotificationsStackScreen from './NotificationsStackScreen';
+import HomeStackScreen from '../HomeStackScreen';
+import ExploreStackScreen from '../ExploreStackScreen';
+import ProfileStackScreen from '../ProfileStackScreen';
+import NotificationsStackScreen from '../NotificationsStackScreen';
 
 
 

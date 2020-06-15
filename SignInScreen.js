@@ -16,9 +16,9 @@ import Feather from '@expo/vector-icons/Feather';
 
 import { useTheme } from 'react-native-paper';
 
-import { AuthContext } from '../components/context';
+import { AuthContext } from 'components/context';
 
-import Users from '../model/users';
+import Users from 'model/users';
 
 const SignInScreen = ({navigation}) => {
 

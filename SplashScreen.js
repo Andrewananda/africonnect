@@ -21,7 +21,8 @@ const SplashScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
            
-          <ImageBackground  source={require('../assets/26915743.jpg')} style={{
+          <ImageBackground url:'https://reactnative.dev/img/tiny_logo.png'
+                            style={{
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
@@ -61,7 +62,7 @@ const SplashScreen = ({navigation}) => {
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-            source={require('../assets/logo.png')}
+                url:'https://reactnative.dev/img/tiny_logo.png'
             style={{width:200}}
             resizeMode="contain"
             />
@@ -71,7 +72,7 @@ const SplashScreen = ({navigation}) => {
             }]}>Access credit when you need it!</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
-            <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}><LinearGradient
+            <TouchableOpacity onPress={()=>navigation.navigate('HomeScreen')}><LinearGradient
                     colors={['#522F89', '#633a80e0']}
                     style={styles.signIn}
                 ><Text style={styles.textSign}>Get Started</Text>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
       height: height_logo
   },
   title: {
-      color: '#05375a',
+      color: '#522F89',
       fontSize: 30,
       fontWeight: 'bold'
   },
