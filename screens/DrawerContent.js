@@ -89,7 +89,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Request Loan"
-                            onPress={() => {props.navigation.navigate('SettingScreen')}}
+                            onPress={() => {props.navigation.navigate('RequestScreen')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (

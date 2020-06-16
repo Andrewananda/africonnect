@@ -33,6 +33,7 @@ import { AuthContext } from './components/context';
 import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
+import RequestScreen from "./screens/RequestScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -172,6 +173,7 @@ const App = () => {
                                 <Drawer.Screen name="RepayStackScreen" component={RepayStackScreen} />
                                 <Drawer.Screen name="RequestLoanStackScreen" component={SettingsScreen} />
                                 <Drawer.Screen name="LoanHistoryStack" component={BookmarkScreen} />
+                                <Drawer.Screen name="RequestScreen" component={RequestScreen} />
                             </Drawer.Navigator>
                         )
                         :
