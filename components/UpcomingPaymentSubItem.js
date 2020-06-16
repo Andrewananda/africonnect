@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
-import {Card,CardItem, Container, Content, Text, Header,View} from 'native-base';
+import {Card, Text,View} from 'native-base';
 
 export default class UpcomingPaymentSubItem extends Component{
     render() {
@@ -8,9 +8,7 @@ export default class UpcomingPaymentSubItem extends Component{
             <View>
                 <Card style={{ borderRadius: this.props.cardRadius }}>
                     <View style={cardStyles.container}>
-                        <View>
-                            <Text style={cardStyles.cardTextDescription}>#1</Text>
-                        </View>
+
                         <View style={cardStyles.cardView}>
                             <Text style={cardStyles.cardTextDescription}>2020-02-06</Text>
                             <Text style={cardStyles.cardTextDescription}>One Week</Text>
@@ -33,9 +31,10 @@ const cardStyles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         padding:10,
+        justifyContent: 'space-between'
     },
     cardView : {
-        width: 120,
+        width:100,
         height:50,
         alignItems:'center',
     },
@@ -49,8 +48,16 @@ const cardStyles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         fontFamily: 'serif',
+        marginTop:10,
+        marginLeft:10,
     },
     cardTextDescription: {
         fontFamily: 'serif',
+        fontSize:15,
+        padding:5,
+    },
+    cardViewNumber:{
+        width: 30,
+        justifyContent: 'space-between'
     }
 })

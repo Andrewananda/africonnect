@@ -64,10 +64,14 @@ const styles = StyleSheet.create({
     },
     chatTitle: {
         textAlign:'center',
-        fontSize:15,
+        fontSize:14,
+        padding:5,
+        fontWeight: 'bold',
         fontFamily: 'serif',
     },
     cardTextDescription:{
         fontFamily: 'serif',
+        fontSize:12,
+        padding:2,
     }
 });

@@ -44,8 +44,8 @@ const cardStyles = StyleSheet.create({
     },
     descriptionStyle: {
         textAlign:'center',
-        fontSize:15,
-        padding:2,
+        fontSize:12,
+        padding:5,
         fontFamily: 'serif',
     },
     cardAlignment: {

@@ -32,13 +32,14 @@ const cardStyles = StyleSheet.create({
     },
     cardTitle: {
         fontWeight: 'bold',
-        fontSize: 24,
+        fontSize:20,
+        padding:5,
         fontFamily: 'serif',
     },
     cardTextDescription: {
         textAlign:'center',
+        fontSize:12,
         padding:5,
-        fontSize: 15,
         fontFamily: 'serif',
     },
     cardTextTitle: {
@@ -50,7 +51,7 @@ const cardStyles = StyleSheet.create({
     },
     cardAmountDescription:{
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize:15,
         color:'#b1b1b1',
         padding:5,
         fontFamily: 'serif',

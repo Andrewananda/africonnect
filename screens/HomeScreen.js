@@ -11,7 +11,7 @@ const HomeScreen = () =>{
     return (
         <SafeAreaView>
             <ScrollView>
-                <HeaderCard title='Welcome Andrew'/>
+                <HeaderCard title='Welcome Andrew!' height={220}/>
                 <View style={styles.bodyStyle}>
                     <ChatComponent/>
                     <PageInstructionComponent cardRadius={10} />
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     bodyStyle: {
         position:'relative',
         margin:15,
-        top:-100,
+        top:-120,
+        marginBottom: -120,
     },
 });
 

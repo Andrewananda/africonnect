@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 export default class HeaderCard extends Component{
     render() {
         return (
-            <View style={styles.headerTitle}>
+            <View style={[styles.headerTitle, {height: this.props.height}]}>
                 <Text style={styles.textHeader}>{this.props.title}</Text>
                 <Text style={styles.description}>Your Personal loan is just one step away</Text>
             </View>
@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
     },
     textHeader: {
         color: '#fff',
-        fontSize:20,
+        fontSize:24,
         justifyContent: 'center',
         textAlign: 'center',
-        paddingTop:20,
+        paddingTop:30,
         fontFamily: 'serif',
     },
     description: {
