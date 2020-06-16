@@ -9,14 +9,14 @@ export default class UpcomingPaymentSubItem extends Component{
                 <Card style={{ borderRadius: this.props.cardRadius }}>
                     <View style={cardStyles.container}>
                         <View>
-                            <Text>#1</Text>
+                            <Text style={cardStyles.cardTextDescription}>#1</Text>
                         </View>
                         <View style={cardStyles.cardView}>
-                            <Text>2020-02-06</Text>
-                            <Text>One Week</Text>
+                            <Text style={cardStyles.cardTextDescription}>2020-02-06</Text>
+                            <Text style={cardStyles.cardTextDescription}>One Week</Text>
                         </View>
                         <View style={cardStyles.cardView}>
-                            <Text>Kes.1,080.00</Text>
+                            <Text style={cardStyles.cardTextDescription}>Kes.1,080.00</Text>
                         </View>
                         <View style={cardStyles.cardView}>
                             <Text button onPress={() => alert("Hello")} style={cardStyles.buttonPay}>PAY</Text>
@@ -48,5 +48,9 @@ const cardStyles = StyleSheet.create({
         color:'#ffffff',
         justifyContent:'center',
         alignItems:'center',
+        fontFamily: 'serif',
+    },
+    cardTextDescription: {
+        fontFamily: 'serif',
     }
 })

@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
         position:'relative',
         margin:15,
         top:-100,
-
     },
 });
 

@@ -15,20 +15,20 @@ export default class ChatComponent extends Component{
                         <ProgressCircle radius={90} color={'green'} percent={40} style={styles.progressBar}  borderWidth={12}>
                             <Text>Good Rating</Text>
                             <Text style={styles.progressBarRating}>{'Ksh.100'}</Text>
-                            <Text style={{ fontSize:10 }}>You Qualify To Get Ksh:1000</Text>
+                            <Text style={{ fontSize:10,fontFamily: 'serif', }}>You Qualify To Get Ksh:1000</Text>
                         </ProgressCircle>
                     </View>
                     <View style={{ marginTop: 10 }}></View>
                     <View style={styles.cardItems}>
                         <View style={styles.paddingStyle}>
-                            <Text>1300</Text>
-                            <Text>Instalments</Text>
+                            <Text style={styles.cardTextDescription}>1300</Text>
+                            <Text style={styles.cardTextDescription}>Instalments</Text>
                         </View>
                         <View style={ styles.separatorLine }>
                         </View>
                         <View style={styles.paddingStyle}>
-                            <Text>2020-04-01</Text>
-                            <Text>Next Repay Date</Text>
+                            <Text style={styles.cardTextDescription}>2020-04-01</Text>
+                            <Text style={styles.cardTextDescription}>Next Repay Date</Text>
                         </View>
                     </View>
                 </Card>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textDecorationLine:'underline',
         color:'green',
-
+        fontFamily: 'serif',
     },
     paddingStyle: {
         padding:10
@@ -65,5 +65,9 @@ const styles = StyleSheet.create({
     chatTitle: {
         textAlign:'center',
         fontSize:15,
+        fontFamily: 'serif',
+    },
+    cardTextDescription:{
+        fontFamily: 'serif',
     }
 });

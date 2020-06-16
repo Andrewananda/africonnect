@@ -9,24 +9,24 @@ export default class QuickAccessComponent extends Component{
                 <View>
                     <Card style={{ borderRadius: this.props.cardRadius }}>
                         <View style={cardStyles.container}>
-                            <View style={{ flexBasis:'50%',padding:10 }}>
-                                <MaterialIcons name="attach-money" size={40} color={'green'} style={{ width: 40, alignSelf:'center', height: 40 }}/>
-                                <Text style={{ alignSelf:'center' }}>Apply Loan</Text>
+                            <View style={cardStyles.cardAlignment}>
+                                <MaterialIcons name="attach-money" size={40} color={'green'} style={cardStyles.iconStyling}/>
+                                <Text style={cardStyles.iconTitle}>Apply Loan</Text>
                                 <Text style={cardStyles.descriptionStyle}>Apply, get loan and increase your limits</Text>
                             </View>
-                            <View style={{ flexBasis:'50%',padding:10 }}>
-                                <MaterialIcons name="credit-card" size={40} color={'darkblue'} style={{ width: 40,alignSelf:'center', height: 40}}/>
-                                <Text style={{ alignSelf:'center'}}>Transactions</Text>
+                            <View style={cardStyles.cardAlignment}>
+                                <MaterialIcons name="credit-card" size={40} color={'darkblue'} style={cardStyles.iconStyling}/>
+                                <Text style={cardStyles.iconTitle}>Transactions</Text>
                                 <Text style={ cardStyles.descriptionStyle }>Review your transactions</Text>
                             </View>
-                            <View style={{ flexBasis:'50%',padding:10 }}>
-                                <MaterialIcons name="account-circle" size={40} color={'red'} style={{ width: 40,alignSelf:'center', height: 40 }}/>
-                                <Text style={{ alignSelf:'center'}}>My Profile</Text>
+                            <View style={cardStyles.cardAlignment}>
+                                <MaterialIcons name="account-circle" size={40} color={'red'} style={cardStyles.iconStyling}/>
+                                <Text style={cardStyles.iconTitle}>My Profile</Text>
                                 <Text style={cardStyles.descriptionStyle}>View and update your Profile</Text>
                             </View>
-                            <View style={{ flexBasis:'50%',padding:10 }}>
-                                <MaterialIcons name="share" size={40} color={'orange'} style={{ width: 40, alignSelf:'center', height: 40 }}/>
-                                <Text style={{ alignSelf:'center' }}>Invite Friend</Text>
+                            <View style={cardStyles.cardAlignment}>
+                                <MaterialIcons name="share" size={40} color={'orange'} style={cardStyles.iconStyling}/>
+                                <Text style={cardStyles.iconTitle}>Invite Friend</Text>
                                 <Text style={cardStyles.descriptionStyle}>Tell a friend to tell a friend</Text>
                             </View>
                         </View>
@@ -45,6 +45,21 @@ const cardStyles = StyleSheet.create({
     descriptionStyle: {
         textAlign:'center',
         fontSize:15,
-        padding:2
+        padding:2,
+        fontFamily: 'serif',
+    },
+    cardAlignment: {
+        flexBasis:'50%',
+        padding:10
+    },
+    iconStyling: {
+        width: 40,
+        alignSelf:'center',
+        height: 40
+    },
+    iconTitle:{
+        alignSelf:'center',
+        fontFamily: 'serif',
+        fontWeight: 'bold'
     }
 })
