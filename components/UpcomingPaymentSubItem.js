@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet,TouchableOpacity} from 'react-native';
 import {Card, Text,View} from 'native-base';
 
 export default class UpcomingPaymentSubItem extends Component{
@@ -17,7 +17,7 @@ export default class UpcomingPaymentSubItem extends Component{
                             <Text style={cardStyles.cardTextDescription}>Kes.1,080.00</Text>
                         </View>
                         <View style={cardStyles.cardView}>
-                            <Text button onPress={() => alert("Hello")} style={cardStyles.buttonPay}>PAY</Text>
+                            <Text button onPress={this.props.onPress} style={cardStyles.buttonPay}>PAY</Text>
                         </View>
                     </View>
                 </Card>

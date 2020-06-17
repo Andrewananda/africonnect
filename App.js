@@ -33,8 +33,7 @@ import { AuthContext } from './components/context';
 import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
-import RequestScreen from "./screens/RequestScreen";
-import LoanHistoryScreen from "./screens/LoanHistoryScreen";
+import LoanRepayStack from "./screens/LoanRepayStack";
 import LoanHistoryStack from "./screens/LoanHistoryStack";
 import RequestStack from "./screens/RequestStack";
 
@@ -178,6 +177,7 @@ const App = () => {
                                 <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
                                 <Drawer.Screen name="RequestStack" component={RequestStack} />
                                 <Drawer.Screen name="LoanHistoryStack" component={LoanHistoryStack} />
+                                <Drawer.Screen name="LoanRepayStack" component={LoanRepayStack} />
                             </Drawer.Navigator>
                         )
                         :
