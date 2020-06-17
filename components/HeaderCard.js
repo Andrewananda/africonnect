@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
     headerTitle: {
         backgroundColor: '#522F89',
         height:'20%',
-        borderBottomEndRadius:15,
-        borderBottomStartRadius:15,
+        borderBottomEndRadius:8,
+        borderBottomStartRadius:8,
 
     },
     textHeader: {
