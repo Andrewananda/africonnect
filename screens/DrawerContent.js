@@ -89,7 +89,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Request Loan"
-                            onPress={() => {props.navigation.navigate('RequestScreen')}}
+                            onPress={() => {props.navigation.navigate('RequestStack')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -100,7 +100,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Loan History"
-                            onPress={() => {props.navigation.navigate('SupportScreen')}}
+                            onPress={() => {props.navigation.navigate('LoanHistoryStack')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (

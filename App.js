@@ -34,6 +34,9 @@ import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import RequestScreen from "./screens/RequestScreen";
+import LoanHistoryScreen from "./screens/LoanHistoryScreen";
+import LoanHistoryStack from "./screens/LoanHistoryStack";
+import RequestStack from "./screens/RequestStack";
 
 const Drawer = createDrawerNavigator();
 
@@ -172,8 +175,9 @@ const App = () => {
                                 <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
                                 <Drawer.Screen name="RepayStackScreen" component={RepayStackScreen} />
                                 <Drawer.Screen name="RequestLoanStackScreen" component={SettingsScreen} />
-                                <Drawer.Screen name="LoanHistoryStack" component={BookmarkScreen} />
-                                <Drawer.Screen name="RequestScreen" component={RequestScreen} />
+                                <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
+                                <Drawer.Screen name="RequestStack" component={RequestStack} />
+                                <Drawer.Screen name="LoanHistoryStack" component={LoanHistoryStack} />
                             </Drawer.Navigator>
                         )
                         :

@@ -3,6 +3,7 @@ import {View, StyleSheet,ScrollView,SafeAreaView,} from "react-native";
 import UpcomingPaymentSubItem from "../components/UpcomingPaymentSubItem";
 import PageInstructionComponent from "../components/PageInstructionComponent";
 import HeaderCard from "../components/HeaderCard";
+import LoanRequestFormComponent from "../components/LoanRequestComponent";
 
 
 const RequestScreen = () =>{
@@ -11,9 +12,7 @@ const RequestScreen = () =>{
             <ScrollView>
                 <HeaderCard title='Request Loan' height={150}/>
                 <View style={styles.bodyStyle}>
-                    <PageInstructionComponent cardRadius={10} />
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
+                    <LoanRequestFormComponent />
                 </View>
             </ScrollView>
         </SafeAreaView>
