@@ -20,14 +20,14 @@ export default class LoanRequestFormComponent extends Component{
                 <Card style={{ borderRadius: 10 }} >
                     <Form>
                         <Item floatingLabel style={loanRequestsStyling.inputStyling}>
-                            <Label>Preferred Loan Amount</Label>
+                            <Label style={{fontFamily: 'serif',}}>Preferred Loan Amount</Label>
                             <Input keyboardType="numeric" />
                         </Item>
                         <Item picker style={loanRequestsStyling.inputStyling}>
                             <Picker
                                 mode="dropdown"
                                 iosIcon={<Icon name="arrow-down" />}
-                                style={{ width: undefined }}
+                                style={{ width: undefined,fontFamily: 'serif', }}
                                 placeholder="Select Payment Duration"
                                 placeholderStyle={{ color: "#bfc6ea" }}
                                 placeholderIconColor="#007aff"
@@ -42,7 +42,7 @@ export default class LoanRequestFormComponent extends Component{
                             <Picker
                                 mode="dropdown"
                                 iosIcon={<Icon name="arrow-down" />}
-                                style={{ width: undefined }}
+                                style={{ width: undefined, fontFamily: 'serif', }}
                                 placeholderStyle={{ color: "#bfc6ea" }}
                                 placeholderIconColor="#007aff"
                                 selectedValue={this.state.selected2}

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 15,
+        padding: 5,
     },
     feature: {
         flexBasis: "50%",
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         textAlign: 'center',
         width:90,
+        fontFamily: 'serif',
     },
 
 });
