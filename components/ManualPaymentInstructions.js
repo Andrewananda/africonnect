@@ -15,7 +15,7 @@ export default class ManualPaymentInstructions extends Component{
                     <Text style={styles.instructionDescription}>5. Enter Account No : 6</Text>
                     <Text style={styles.instructionDescription}>6. Enter Amount : 1080</Text>
                     <Text style={styles.instructionDescription}>7. Confirm Payment.</Text>
-                    <Button color={'#ffc94f'} title="Confirm" />
+                    <Button onPress={this.props.onPress} color={'#ffc94f'} title="Confirm" />
                 </Card>
             </View>
         );

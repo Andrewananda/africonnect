@@ -1,5 +1,5 @@
 import React from 'react';
-import LoanRepayScreen from './LoanRepayScreen';
+import LoanRepayScreen from '../screens/LoanRepayScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from '@expo/vector-icons/Ionicons';
 const Stack = createStackNavigator();

@@ -1,5 +1,5 @@
 import React from 'react';
-import PaymentInstructionScreen from './PaymentInstructionScreen';
+import PaymentInstructionScreen from '../screens/PaymentInstructionScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from '@expo/vector-icons/Ionicons';
 const Stack = createStackNavigator();

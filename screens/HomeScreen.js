@@ -5,7 +5,7 @@ import UpcomingPaymentSubItem from "../components/UpcomingPaymentSubItem";
 import PageInstructionComponent from "../components/PageInstructionComponent";
 import ChatComponent from "../components/Chat";
 import HeaderCard from "../components/HeaderCard";
-import LoanRepayStack from "./LoanRepayStack";
+import LoanRepayStack from "../stack/LoanRepayStack";
 import {Text} from "native-base";
 
 

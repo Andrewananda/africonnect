@@ -24,7 +24,7 @@ import {
 import { DrawerContent } from './screens/DrawerContent';
 
 import MainTabScreen from './screens/MainTabScreen';
-import RepayStackScreen from './screens/RepayStackScreen';
+import RepayStackScreen from './stack/RepayStackScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
 
@@ -33,10 +33,11 @@ import { AuthContext } from './components/context';
 import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
-import LoanRepayStack from "./screens/LoanRepayStack";
-import LoanHistoryStack from "./screens/LoanHistoryStack";
-import RequestStack from "./screens/RequestStack";
-import PaymentInstructionStack from "./screens/PaymentInstructionStack";
+import LoanRepayStack from "./stack/LoanRepayStack";
+import LoanHistoryStack from "./stack/LoanHistoryStack";
+import RequestStack from "./stack/RequestStack";
+import PaymentInstructionStack from "./stack/PaymentInstructionStack";
+import ReceiptStack from "./stack/ReceiptStack";
 
 const Drawer = createDrawerNavigator();
 
@@ -180,6 +181,7 @@ const App = () => {
                                 <Drawer.Screen name="LoanHistoryStack" component={LoanHistoryStack} />
                                 <Drawer.Screen name="LoanRepayStack" component={LoanRepayStack} />
                                 <Drawer.Screen name="PaymentInstructionStack" component={PaymentInstructionStack} />
+                                <Drawer.Screen name="ReceiptStack" component={ReceiptStack} />
                             </Drawer.Navigator>
                         )
                         :

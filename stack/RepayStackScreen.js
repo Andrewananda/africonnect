@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import NotificationsScreen from './NotificationsScreen';
+import RepayScreen from '../screens/RepayScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from '@expo/vector-icons/Ionicons';
 const Stack = createStackNavigator();
-const NotificationsStackScreen = ({navigation}) => (
+const RepayStackScreen = ({navigation}) => (
     <Stack.Navigator screenOptions={{
             headerStyle: {
             backgroundColor: '#522F89',
@@ -14,13 +13,14 @@ const NotificationsStackScreen = ({navigation}) => (
             fontWeight: 'bold'
             }
         }}>
-            <Stack.Screen name="Home" component={NotificationsScreen} options={{
-            title:'Home',
+            <Stack.Screen name="RepayScreen" component={RepayScreen} options={{
+            title:'Repay',
             headerLeft: () => (
-                <Icon.Button name="ios-menu" size={25} backgroundColor="#522F89" onPress={() => navigation.openDrawer()}></Icon.Button>
+                <Icon.Button name="ios-menu" size={25} backgroundColor="#522F89" 
+                onPress={() => navigation.openDrawer()}></Icon.Button>
             )
             }} />
     </Stack.Navigator>
     );
 
-export default NotificationsStackScreen;
+export default RepayStackScreen;

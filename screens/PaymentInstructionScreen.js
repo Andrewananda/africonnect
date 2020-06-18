@@ -1,11 +1,11 @@
 import React,{Component} from "react";
-import {View, StyleSheet,ScrollView,SafeAreaView,} from "react-native";
+import {View, StyleSheet} from "react-native";
 import HeaderCard from "../components/HeaderCard";
 import AlertBoxComponent from "../components/AlertBoxComponent";
 import PageInstructionComponent from "../components/PageInstructionComponent";
 import ManualPaymentInstructions from "../components/ManualPaymentInstructions";
 
-const PaymentInstructionScreen = () =>{
+const PaymentInstructionScreen = ({navigation}) =>{
     return (
         <View>
             <HeaderCard title='Loan Payment' height={200}/>
@@ -18,7 +18,7 @@ const PaymentInstructionScreen = () =>{
                 <AlertBoxComponent
                     title="Validate Failed! Use the instructions below to pay."
                 />
-                <ManualPaymentInstructions />
+                <ManualPaymentInstructions onPress={()=>navigation.navigate("ReceiptStack")}/>
             </View>
         </View>
     );
