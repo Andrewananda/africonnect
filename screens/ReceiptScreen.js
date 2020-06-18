@@ -10,7 +10,7 @@ const ReceiptScreen = ({navigation}) => {
           <HeaderCard height={180} title="Successfully Completed Payment!"/>
           <View style={styles.bodyStyle}>
               <PageInstructionComponent cardRadius={10} title="Payment Complete" amount="Here is a receipt for the payment."/>
-              <ReceiptComponent />
+              <ReceiptComponent onPress={navigation.navigate('LoanHistoryStack')}/>
           </View>
       </View>
     );

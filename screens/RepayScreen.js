@@ -7,28 +7,18 @@ import ChatComponent from "../components/Chat";
 import HeaderCard from "../components/HeaderCard";
 
 
-const RepayScreen = () =>{
+const RepayScreen = ({navigation}) =>{
     return (
         <SafeAreaView>
             <ScrollView>
                 <HeaderCard title='Repay Loan' height={150}/>
                 <View style={styles.bodyStyle}>
-                    <PageInstructionComponent cardRadius={10} />
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
-                    <UpcomingPaymentSubItem cardRadius={10}/>
+                    <PageInstructionComponent title="Your Active Loans" description="You have the following active loans. Repay on time and increase your loan limit." amount="1079.00" cardRadius={10} />
+                    <UpcomingPaymentSubItem onPress={()=>navigation.navigate("LoanRepayStack")} cardRadius={10}/>
+                    <UpcomingPaymentSubItem onPress={()=>navigation.navigate("LoanRepayStack")} cardRadius={10}/>
+                    <UpcomingPaymentSubItem onPress={()=>navigation.navigate("LoanRepayStack")} cardRadius={10}/>
+                    <UpcomingPaymentSubItem onPress={()=>navigation.navigate("LoanRepayStack")} cardRadius={10}/>
+                    <UpcomingPaymentSubItem onPress={()=>navigation.navigate("LoanRepayStack")} cardRadius={10}/>
                 </View>
             </ScrollView>
         </SafeAreaView>

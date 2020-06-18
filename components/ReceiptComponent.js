@@ -52,7 +52,7 @@ export default class ReceiptComponent extends Component{
                       }}
                   />
                   <View style={{ padding:10,fontFamily: 'serif', }}>
-                      <Button color={'#ffc94f'}  title="Close"/>
+                      <Button onPress={this.props.onPress} color={'#ffc94f'}  title="Close"/>
                   </View>
 
               </Card>
