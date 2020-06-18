@@ -9,13 +9,13 @@ export default class PageInstructionComponent extends Component{
                 <Card style={{ borderRadius: this.props.cardRadius }}>
                     <View style={cardStyles.container}>
                         <View style={cardStyles.cardAlignment}>
-                            <Text style={cardStyles.cardTitle}>Your Active Loans </Text>
+                            <Text style={cardStyles.cardTitle}>{this.props.title}</Text>
                         </View>
                         <View style={ cardStyles.cardAlignment }>
-                            <Text style={ cardStyles.cardAmountDescription }>1,080.00</Text>
+                            <Text style={ cardStyles.cardAmountDescription }>{this.props.amount}</Text>
                         </View>
                         <View style={{ width:'100%'}}>
-                            <Text style={cardStyles.cardTextDescription}> You have the following active loans. Repay on time and increase your loan limit.</Text>
+                            <Text style={cardStyles.cardTextDescription}>{this.props.description}</Text>
                         </View>
                     </View>
                 </Card>

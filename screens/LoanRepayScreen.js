@@ -4,14 +4,17 @@ import HeaderCard from "../components/HeaderCard";
 import PageInstructionComponent from "../components/PageInstructionComponent";
 import RepayLoanComponent from "../components/RepayLoanComponent";
 
-const RequestScreen = () =>{
+const RequestScreen = ({navigation}) =>{
     return (
         <SafeAreaView>
             <ScrollView>
                 <HeaderCard title='Repay Loan' height={180}/>
                 <View style={styles.bodyStyle}>
-                   <PageInstructionComponent cardRadius={10} />
-                   <RepayLoanComponent />
+                   <PageInstructionComponent
+                       title="Your Active Loans "
+                       amount="1,080.00"
+                       description="You have the following active loans. Repay on time and increase your loan limit." cardRadius={10} />
+                   <RepayLoanComponent onPress={()=>navigation.navigate("PaymentInstructionStack") }/>
                 </View>
             </ScrollView>
         </SafeAreaView>
