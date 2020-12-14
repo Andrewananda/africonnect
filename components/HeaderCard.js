@@ -6,7 +6,6 @@ export default class HeaderCard extends Component{
         return (
             <View style={[styles.headerTitle, {height: this.props.height}]}>
                 <Text style={styles.textHeader}>{this.props.title}</Text>
-                <Text style={styles.description}>Your Personal loan is just one step away</Text>
             </View>
         );
     }
@@ -14,7 +13,7 @@ export default class HeaderCard extends Component{
 }
 const styles = StyleSheet.create({
     headerTitle: {
-        backgroundColor: '#522F89',
+        backgroundColor: '#17a2b8',
         height:'20%',
         borderBottomEndRadius:8,
         borderBottomStartRadius:8,

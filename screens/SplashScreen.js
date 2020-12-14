@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
-//import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
 
@@ -21,7 +20,7 @@ const SplashScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
            
-          <ImageBackground  source={require('../assets/26915743.jpg')} style={{
+          <ImageBackground  source={require('../assets/african_border2.png')} style={{
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center"
@@ -39,17 +38,8 @@ const SplashScreen = ({navigation}) => {
           }}
         />
       
-          <StatusBar backgroundColor='#522F89' barStyle="light-content"/>
+          <StatusBar backgroundColor='#17a2b8' barStyle="light-content"/>
         <View style={styles.header}>
-
-        {/**<Animatable.Image 
-                animation="bounceIn"
-                duraton="1500"
-            source={require('../assets/logo.png')}
-            style={{width:200}}
-            resizeMode="contain"
-        />**/}
-
            
         </View>
         <Animatable.View 
@@ -58,21 +48,14 @@ const SplashScreen = ({navigation}) => {
             }]}
             animation="fadeInUpBig"
         >
-            <Animatable.Image 
-                animation="bounceIn"
-                duraton="1500"
-            source={require('../assets/logo.png')}
-            style={{width:200}}
-            resizeMode="contain"
-            />
              
             <Text style={[styles.title, {
                 color: "#F6851F"
-            }]}>Access credit when you need it!</Text>
+            }]}>Get all your IT goodies here!</Text>
             <Text style={styles.text}>Sign in with account</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}><LinearGradient
-                    colors={['#522F89', '#633a80e0']}
+                    colors={['#17a2b8', '#17a2b8']}
                     style={styles.signIn}
                 ><Text style={styles.textSign}>Get Started</Text>
                     <MaterialIcons 
@@ -95,7 +78,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#522F89'
+    backgroundColor: '#17a2b8'
   },
   header: {
       flex: 1.2,

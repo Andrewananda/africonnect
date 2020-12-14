@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import {
     NavigationContainer,
@@ -22,60 +14,25 @@ import {
 } from 'react-native-paper';
 
 import { DrawerContent } from './screens/DrawerContent';
-
-import MainTabScreen from './screens/MainTabScreen';
-import RepayStackScreen from './stack/RepayStackScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import BookmarkScreen from './screens/BookmarkScreen';
-
 import { AuthContext } from './components/context';
 
 import RootStackScreen from './screens/RootStackScreen';
 
 import AsyncStorage from '@react-native-community/async-storage';
-import LoanRepayStack from "./stack/LoanRepayStack";
-import LoanHistoryStack from "./stack/LoanHistoryStack";
-import RequestStack from "./stack/RequestStack";
-import PaymentInstructionStack from "./stack/PaymentInstructionStack";
-import ReceiptStack from "./stack/ReceiptStack";
+import HomeStackScreen from "./screens/HomeStackScreen";
+import ProductCategoriesStack from "./stack/ProductCategoriesStack";
+import HistoryStack from "./stack/HistoryStack";
+import SingleProductStack from "./stack/SingleProductStack";
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
-    // const [isLoading, setIsLoading] = React.useState(true);
-    // const [userToken, setUserToken] = React.useState(null);
-
-    const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
     const initialLoginState = {
         isLoading: true,
         userName: null,
         userToken: null,
     };
-
-    const CustomDefaultTheme = {
-        ...NavigationDefaultTheme,
-        ...PaperDefaultTheme,
-        colors: {
-            ...NavigationDefaultTheme.colors,
-            ...PaperDefaultTheme.colors,
-            background: '#ffffff',
-            text: '#333333'
-        }
-    }
-
-    const CustomDarkTheme = {
-        ...NavigationDarkTheme,
-        ...PaperDarkTheme,
-        colors: {
-            ...NavigationDarkTheme.colors,
-            ...PaperDarkTheme.colors,
-            background: '#333333',
-            text: '#ffffff'
-        }
-    }
-
-    const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
 
     const loginReducer = (prevState, action) => {
         switch( action.type ) {
@@ -113,22 +70,19 @@ const App = () => {
 
     const authContext = React.useMemo(() => ({
         signIn: async(foundUser) => {
-            // setUserToken('fgkj');
-            // setIsLoading(false);
-            const userToken = String(foundUser[0].userToken);
-            const userName = foundUser[0].username;
+            const userToken = String(foundUser.id);
+            const userName = foundUser.username;
 
             try {
                 await AsyncStorage.setItem('userToken', userToken);
+                await AsyncStorage.setItem('username', userName);
+                await AsyncStorage.setItem('user', JSON.stringify(foundUser));
             } catch(e) {
                 console.log(e);
             }
-            // console.log('user token: ', userToken);
             dispatch({ type: 'LOGIN', id: userName, token: userToken });
         },
         signOut: async() => {
-            // setUserToken(null);
-            // setIsLoading(false);
             try {
                 await AsyncStorage.removeItem('userToken');
             } catch(e) {
@@ -136,13 +90,6 @@ const App = () => {
             }
             dispatch({ type: 'LOGOUT' });
         },
-        signUp: () => {
-            // setUserToken('fgkj');
-            // setIsLoading(false);
-        },
-        toggleTheme: () => {
-            setIsDarkTheme( isDarkTheme => !isDarkTheme );
-        }
     }), []);
 
     useEffect(() => {
@@ -168,20 +115,16 @@ const App = () => {
         );
     }
     return (
-        <PaperProvider theme={theme}>
+        //Navigation Stack for the whole
+        <PaperProvider>
             <AuthContext.Provider value={authContext}>
-                <NavigationContainer theme={theme}>
+                <NavigationContainer>
                     { loginState.userToken !== null ? (
                             <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-                                <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-                                <Drawer.Screen name="RepayStackScreen" component={RepayStackScreen} />
-                                <Drawer.Screen name="RequestLoanStackScreen" component={SettingsScreen} />
-                                <Drawer.Screen name="Bookmark" component={BookmarkScreen} />
-                                <Drawer.Screen name="RequestStack" component={RequestStack} />
-                                <Drawer.Screen name="LoanHistoryStack" component={LoanHistoryStack} />
-                                <Drawer.Screen name="LoanRepayStack" component={LoanRepayStack} />
-                                <Drawer.Screen name="PaymentInstructionStack" component={PaymentInstructionStack} />
-                                <Drawer.Screen name="ReceiptStack" component={ReceiptStack} />
+                                <Drawer.Screen name="HomeStackScreen" component={HomeStackScreen} />
+                                <Drawer.Screen name="ProductCategoriesStack" component={ProductCategoriesStack} />
+                                <Drawer.Screen name="HistoryStack" component={HistoryStack} />
+                                <Drawer.Screen name="SingleProductStack" component={SingleProductStack} />
                             </Drawer.Navigator>
                         )
                         :

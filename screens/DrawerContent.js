@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
     useTheme,
@@ -17,13 +17,19 @@ import {
 } from '@react-navigation/drawer';
 
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
+import AsyncStorage from "@react-native-community/async-storage";
+
 
 import{ AuthContext } from '../components/context';
 
 export function DrawerContent(props) {
 
     const paperTheme = useTheme();
-
+    const [user, setUser] = useState({});
+    AsyncStorage.getItem('user').then((user) => {
+        const convert = JSON.parse(user);
+        setUser(convert)
+    });
     const { signOut, toggleTheme } = React.useContext(AuthContext);
 
     return(
@@ -34,29 +40,21 @@ export function DrawerContent(props) {
                         <View style={{flexDirection:'row',marginTop: 15}}>
                             <Avatar.Image 
                                 source={{
-                                    uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'
+                                    uri: user.picture
                                 }}
                                 size={50}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>Martin Muriithi</Title>
-                                <Caption style={styles.caption}>@j_doe</Caption>
+                                <Title style={styles.title}>{user.username}</Title>
+                                <Text style={styles.caption}>{user.email}</Text>
                             </View>
                         </View>
 
                         <View style={styles.row}>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>80</Paragraph>
-                                <Caption style={styles.caption}>Following</Caption>
-                            </View>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>100</Paragraph>
-                                <Caption style={styles.caption}>Followers</Caption>
-                            </View>
                         </View>
                     </View>
 
-                    <Drawer.Section style={styles.drawerSection}>
+                    <Drawer.Section style={styles.drawerSection} title="Navigation">
                         <DrawerItem style={{backgroundColor:"#F6851F",color:"#fff",opacity:0.6}}
                             icon={({color, size}) => (
                                 <Icon 
@@ -77,80 +75,36 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Repay Loan"
-                            onPress={() => {props.navigation.navigate('RepayStackScreen')}}
+                            label="Products"
+                            onPress={() => {props.navigation.navigate('ProductCategoriesStack')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="settings-outline" 
+                                name="bookmark-outline"
                                 color={color}
                                 size={size}
                                 />
                             )}
-                            label="Request Loan"
-                            onPress={() => {props.navigation.navigate('RequestStack')}}
-                        />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Loan History"
-                            onPress={() => {props.navigation.navigate('LoanHistoryStack')}}
-                        />
-                        <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Support"
-                            onPress={() => {props.navigation.navigate('SupportScreen')}}
+                            label="Purchases"
+                            onPress={() => {props.navigation.navigate('HistoryStack')}}
                         />
 
-                        <DrawerItem 
+
+                        <DrawerItem
                             icon={({color, size}) => (
-                                <Icon 
-                                name="account-outline" 
-                                color={color}
-                                size={size}
+                                <Icon
+                                    name="exit-to-app"
+                                    color={color}
+                                    size={size}
                                 />
                             )}
-                            label="My Profile"
-                            onPress={() => {props.navigation.navigate('Profile')}}
+                            label="Sign Out"
+                            onPress={() => {signOut()}}
                         />
-                    </Drawer.Section>
-                    <Drawer.Section title="Preferences">
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
-                            <View style={styles.preference}>
-                                <Text>Dark Theme</Text>
-                                <View pointerEvents="none">
-                                    <Switch value={paperTheme.dark}/>
-                                </View>
-                            </View>
-                        </TouchableRipple>
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
-            <Drawer.Section style={styles.bottomDrawerSection}>
-                <DrawerItem 
-                    icon={({color, size}) => (
-                        <Icon 
-                        name="exit-to-app" 
-                        color={color}
-                        size={size}
-                        />
-                    )}
-                    label="Sign Out"
-                    onPress={() => {signOut()}}
-                />
-            </Drawer.Section>
         </View>
     );
 }
@@ -168,7 +122,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     caption: {
-      fontSize: 14,
+      fontSize: 10,
       lineHeight: 14,
     },
     row: {

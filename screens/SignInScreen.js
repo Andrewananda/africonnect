@@ -19,9 +19,11 @@ import { useTheme } from 'react-native-paper';
 import { AuthContext } from '../components/context';
 
 import Users from '../model/users';
+import {BASE_URL} from "../Util";
 
 const SignInScreen = ({navigation}) => {
 
+    //Set state for data
     const [data, setData] = React.useState({
         username: '',
         password: '',
@@ -54,6 +56,7 @@ const SignInScreen = ({navigation}) => {
     }
 
     const handlePasswordChange = (val) => {
+        //check for password validity
         if( val.trim().length >= 8 ) {
             setData({
                 ...data,
@@ -92,29 +95,45 @@ const SignInScreen = ({navigation}) => {
 
     const loginHandle = (userName, password) => {
 
-        const foundUser = Users.filter( item => {
-            return userName == item.username && password == item.password;
-        } );
+        fetch(BASE_URL, {
+        })
+            .then((response) => {
+                let response_json = response.json();
+                return response_json;
 
-        if ( data.username.length == 0 || data.password.length == 0 ) {
-            Alert.alert('Wrong Input!', 'Username or password field cannot be empty.', [
-                {text: 'Okay'}
-            ]);
-            return;
-        }
+            })
+            .then((responseJson) => {
+                console.log(responseJson.users);
+                const users = responseJson.users
+                //Loop through all users and check if credentials match any
+                users.map((item, index) =>{
+                    //check if username or email exist
+                    if (item.username == userName || item.email == userName) {
+                        //Check if password is correct
+                        if (item.password == password){
+                            //login user
+                            signIn(item)
+                        }else {
+                            //throw password error
+                            Alert.alert("Login Error","Wrong password")
+                        }
+                    }else  {
+                        //throw username error
+                        Alert.alert("Login Error", "username or email does not exist")
+                    }
+                })
 
-        if ( foundUser.length == 0 ) {
-            Alert.alert('Invalid User!', 'Username or password is incorrect.', [
-                {text: 'Okay'}
-            ]);
-            return;
-        }
-        signIn(foundUser);
+            })
+            .catch(function (error) {
+                //throw error incase of any other issues
+                Alert.alert("Login Error", error.messages)
+                console.log("Error Message " + error);
+            })
     }
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#522F89' barStyle="light-content"/>
+          <StatusBar backgroundColor='#17a2b8' barStyle="light-content"/>
         <View style={styles.header}>
             <Text style={styles.text_header}>Welcome!</Text>
         </View>
@@ -226,18 +245,6 @@ const SignInScreen = ({navigation}) => {
                
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('SignUpScreen')}
-                    style={[styles.signIn, {
-                        borderColor: '#F6851F',
-                        borderWidth: 1,
-                        marginTop: 15
-                    }]}
-                >
-                    <Text style={[styles.textSign, {
-                        color: '#F6851F'
-                    }]}>Sign Up</Text>
-                </TouchableOpacity>
             </View>
         </Animatable.View>
       </View>
@@ -249,7 +256,7 @@ export default SignInScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1, 
-      backgroundColor: '#522F89'
+      backgroundColor: '#17a2b8'
     },
     header: {
         flex: 1,

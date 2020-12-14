@@ -1,29 +1,65 @@
-import React,{Component} from "react";
-import {View, StyleSheet,ScrollView,SafeAreaView,} from "react-native";
-import QuickAccessComponent from "../components/QuickAccessComponent";
-import UpcomingPaymentSubItem from "../components/UpcomingPaymentSubItem";
-import PageInstructionComponent from "../components/PageInstructionComponent";
-import ChatComponent from "../components/Chat";
+import React, {useState,useEffect} from "react";
+import {View, StyleSheet,ScrollView,SafeAreaView,ActivityIndicator} from "react-native";
 import HeaderCard from "../components/HeaderCard";
-import LoanRepayStack from "../stack/LoanRepayStack";
-import {Text} from "native-base";
+import AsyncStorage from "@react-native-community/async-storage";
+import ProductComponent from "../components/ProductComponent";
+import {BASE_URL} from "../Util";
 
+function HomeScreen(props){
 
-const HomeScreen = ({navigation}) =>{
+    const [user, setUser] = useState('');
+    const [products,setProducts] = useState([])
+    const [categories,setCategories] = useState([])
+    const [branches,setBranches] = useState([])
+    const [loading,setLoading] = useState(true)
+    AsyncStorage.getItem('username').then((username) => {
+        setUser(username)
+    });
+
+    useEffect(() => {
+        setLoading(true)
+        fetch(BASE_URL,{}).then(response => {
+            return response.json()
+        })
+            .then((responseJson) => {
+                //Set all data to the right state
+                setProducts(responseJson.products)
+                setCategories(responseJson.categories)
+                setBranches(responseJson.branches)
+                //stop loading animator
+                setLoading(false)
+            })
+            .catch(function (error){
+                alert(error)
+                setLoading(false)
+            })
+    },[])
+
     return (
         <SafeAreaView>
             <ScrollView>
-                <HeaderCard title='Welcome Andrew!' height={220}/>
-                <View style={styles.bodyStyle}>
-                    <ChatComponent/>
-                    <PageInstructionComponent
-                        title="Your Active Loans "
-                        amount="1,080.00"
-                        description="You have the following active loans. Repay on time and increase your loan limit."
-                        cardRadius={10}
-                    />
-                    <UpcomingPaymentSubItem cardRadius={10} onPress={()=>navigation.navigate("LoanRepayStack")}/>
-                    <QuickAccessComponent cardRadius={10}/>
+                <HeaderCard title={'Welcome back ' + user + '!'} height={100}/>
+                <View >
+                    {
+                        loading ?
+                            <ActivityIndicator />
+                            :
+                            <View>
+                                {
+                                    products ?
+                                        products.map((item,index)=>{
+                                            if (item.new) {
+                                                return (
+                                                    <ProductComponent onPress={() => props.navigation.navigate('SingleProductStack',{product: item})} price={item.price} description={item.description} title={item.name} src={{uri: item.picture }} />
+                                                )
+                                            }
+                                        })
+                                        :
+                                        <View></View>
+                                }
+                            </View>
+
+                    }
                 </View>
             </ScrollView>
         </SafeAreaView>
